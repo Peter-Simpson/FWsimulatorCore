@@ -12,7 +12,9 @@ This is an ASCOM FilterWheel simulator written in ASP.NET Core targetting framew
 	* Click on Dependencies / Add Reference 
 	* Browse to C:\Program Files (x86)\ASCOM\Platform 6 Developer Components\Components\Platform 6    [Ignore (x86) if you are on a 32bit machine]
 	* Select the DLL that matches the component name you noted
-  * By default the simulator will start on port 60001 accessible through all network interfaces. If you need different start-up parameters, configure them in the hosting.json file.
+  * Configuration
+    * By default the simulator will start on port 60001 accessible through all network interfaces. If you need different start-up parameters, configure them in the hosting.json file.
+    * By default the simulator will create log files in date based folders under the application deployment folder. You can stop this by setting TraceLogger.Enabled to false in Program.cs.
   * Build the solution, which should compile without issue
 
 # Publishing to Linux-Arm

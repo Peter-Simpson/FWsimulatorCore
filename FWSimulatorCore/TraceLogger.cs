@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 using System.IO;
-using System.Diagnostics;
+using System.Reflection;
 
 namespace ASCOMCore
 {
@@ -112,13 +112,13 @@ namespace ASCOMCore
 
                     case Platform.Linux:
                         {
-                            FilePath = "/var/log/ascom/logs";
+                            FilePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
                         }
                         break;
 
                     case Platform.OSX:
                         {
-                            FilePath = "/var/log/ascom/logs";
+                            FilePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
                         }
                         break;
 
@@ -127,7 +127,7 @@ namespace ASCOMCore
                             throw new Exception("Unknown OSPlatform - cannot automatically determine correct file path.");
                         }
                 }
-                filePath = FilePath + DateTime.Now.ToString(TRACE_LOGGER_FILE_NAME_DATE_FORMAT); // Append the current date time string to form the full ASCOM log file path
+                filePath = FilePath + Path.DirectorySeparatorChar.ToString() + DateTime.Now.ToString(TRACE_LOGGER_FILE_NAME_DATE_FORMAT); // Append the current date time string to form the full ASCOM log file path
             }
             else // User has supplied their own path so use that
             {
@@ -142,6 +142,8 @@ namespace ASCOMCore
             // Create the log file stream writer
             logStreamWriter = new StreamWriter(fullFileName);
             logStreamWriter.AutoFlush = true;
+            logStreamWriter.WriteLine(string.Format(@"File path: {0}, Directory separator: {1}, Log name: {2}, DateTime: {3}", filePath, Path.DirectorySeparatorChar.ToString(), logName, DateTime.Now.ToString("HHmm.ssfff")));
+            logStreamWriter.Flush();
         }
 
         /// <summary>
