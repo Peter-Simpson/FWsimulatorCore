@@ -12,7 +12,6 @@ namespace ASCOMCore
         public ShortArray3DResponse(int clientTransactionID, int transactionID, string method, short[,,] value)
         {
             base.ServerTransactionID = transactionID;
-            base.Method = method;
             shortArray3D = value;
             base.Type = (int)TYPE;
             base.Rank = RANK;

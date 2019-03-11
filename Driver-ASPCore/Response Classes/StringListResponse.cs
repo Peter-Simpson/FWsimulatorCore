@@ -15,7 +15,6 @@ namespace ASCOMCore
         public StringListResponse(int clientTransactionID, int transactionID, string method, List<string> value)
         {
             base.ServerTransactionID = transactionID;
-            base.Method = method;
             list = value;
             base.ClientTransactionID = clientTransactionID;
         }

@@ -9,7 +9,6 @@ namespace ASCOMCore
         public ShortResponse(int clientTransactionID, int transactionID, string method, short value)
         {
             base.ServerTransactionID = transactionID;
-            base.Method = method;
             base.ClientTransactionID = clientTransactionID;
             Value = value;
         }

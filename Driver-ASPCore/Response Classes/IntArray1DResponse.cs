@@ -15,7 +15,6 @@ namespace ASCOMCore
         public IntArray1DResponse(int clientTransactionID, int transactionID, string method, int[] value)
         {
             base.ServerTransactionID = transactionID;
-            base.Method = method;
             base.ClientTransactionID = clientTransactionID;
             intArray1D = value;
         }

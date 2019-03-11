@@ -11,6 +11,8 @@ namespace ASCOMCore
         public static FWSimulator Simulator;
         public static TraceLogger TraceLogger;
 
+        public const int ASCOM_ERROR_NUMBER_OFFSET = unchecked((int)0x80040000); // int value of the ASCOM COM error code range
+
         public static void Main(string[] args)
         {
             Simulator = new FWSimulator();

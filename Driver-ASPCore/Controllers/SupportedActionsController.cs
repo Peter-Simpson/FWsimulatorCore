@@ -28,7 +28,8 @@ namespace ASCOMCore.Controllers
             {
                 Program.TraceLogger.LogMessage(methodName, string.Format("Exception calling {0}: {1}", methodName, ex.ToString()));
                 StringListResponse response = new StringListResponse(ClientTransactionID, ClientID, methodName, new List<string>());
-                response.DriverException = ex;
+                response.ErrorMessage = ex.Message;
+                response.ErrorNumber = ex.HResult - Program.ASCOM_ERROR_NUMBER_OFFSET;
                 return response;
             }
         }

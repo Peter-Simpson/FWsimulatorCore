@@ -22,7 +22,8 @@ namespace ASCOMCore.Controllers
             {
                 Program.TraceLogger.LogMessage(methodName + " Get", string.Format("Exception: {0}", ex.ToString()));
                 BoolResponse response = new BoolResponse(ClientTransactionID, ClientID, methodName, false);
-                response.DriverException = ex;
+                response.ErrorMessage = ex.Message;
+                response.ErrorNumber = ex.HResult - Program.ASCOM_ERROR_NUMBER_OFFSET;
                 return response;
             }
         }
@@ -40,12 +41,10 @@ namespace ASCOMCore.Controllers
             {
                 Program.TraceLogger.LogMessage(methodName + " Set", string.Format("Exception when setting {0} {1} {2}", methodName, Connected, ex.ToString()));
                 MethodResponse response = new MethodResponse(ClientTransactionID, ClientID, methodName);
-                response.DriverException = ex;
+                response.ErrorMessage = ex.Message;
+                response.ErrorNumber = ex.HResult - Program.ASCOM_ERROR_NUMBER_OFFSET;
                 return response;
             }
         }
-
-
-
     }
 }

@@ -88,7 +88,14 @@ namespace ASCOMCore
         /// <summary>
         /// Return the device description
         /// </summary>
-        public string Description => "Filter wheel simulator built using .NET Core, accessible through the ASCOM REST API.";
+        public string Description
+        {
+            get
+            {
+                throw new ASCOM.PropertyNotImplementedException("Description", false);
+                //return "Filter wheel simulator built using .NET Core, accessible through the ASCOM REST API.";
+            }
+        }
 
         /// <summary>
         /// Return the driver information

@@ -9,7 +9,6 @@ namespace ASCOMCore
         public DoubleResponse(int clientTransactionID, int transactionID, string method, double value)
         {
             base.ServerTransactionID = transactionID;
-            base.Method = method;
             base.ClientTransactionID = clientTransactionID;
             Value = value;
         }

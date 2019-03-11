@@ -13,7 +13,6 @@ namespace ASCOMCore
         public TrackingRatesResponse(int clientTransactionID, int transactionID, string method)
         {
             base.ServerTransactionID = transactionID;
-            base.Method = method;
             base.ClientTransactionID = clientTransactionID;
         }
 

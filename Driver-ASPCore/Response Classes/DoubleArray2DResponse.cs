@@ -12,7 +12,6 @@ namespace ASCOMCore
         public DoubleArray2DResponse(int clientTransactionID, int transactionID, string method, double[,] value)
         {
             base.ServerTransactionID = transactionID;
-            base.Method = method;
             doubleArray2D = value;
             base.Type = (int)TYPE;
             base.Rank = RANK;

@@ -9,7 +9,6 @@ namespace ASCOMCore
         public IntResponse(int clientTransactionID, int transactionID, string method, int value)
         {
             base.ServerTransactionID = transactionID;
-            base.Method = method;
             base.ClientTransactionID = clientTransactionID;
             Value = value;
         }

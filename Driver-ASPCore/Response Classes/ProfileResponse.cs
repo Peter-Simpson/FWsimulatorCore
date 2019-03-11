@@ -11,7 +11,6 @@ namespace ASCOMCore
         public ProfileResponse(int clientTransactionID, int transactionID, string method, List<ProfileDevice> value)
         {
             base.ServerTransactionID = transactionID;
-            base.Method = method;
             list = value;
             base.ClientTransactionID = clientTransactionID;
         }

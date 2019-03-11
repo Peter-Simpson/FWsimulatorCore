@@ -12,7 +12,6 @@ namespace ASCOMCore
         public ConfigurationResponse(int clientTransactionID, int transactionID, string method, ConcurrentDictionary<string, ConfiguredDevice> value)
         {
             base.ServerTransactionID = transactionID;
-            base.Method = method;
             list = value;
             base.ClientTransactionID = clientTransactionID;
         }

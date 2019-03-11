@@ -22,7 +22,8 @@ namespace ASCOMCore.Controllers
             {
                 Program.TraceLogger.LogMessage(methodName + " Get", string.Format("Exception: {0}", ex.ToString()));
                 ShortResponse response = new ShortResponse(ClientTransactionID, ClientID, methodName, 0);
-                response.DriverException = ex;
+                response.ErrorMessage = ex.Message;
+                response.ErrorNumber = ex.HResult - Program.ASCOM_ERROR_NUMBER_OFFSET;
                 return response;
             }
         }
@@ -33,19 +34,18 @@ namespace ASCOMCore.Controllers
             try
             {
                 Program.Simulator.Position = Position;
-                    Program.TraceLogger.LogMessage(methodName + " Set", string.Format("{0} set to {1} OK", methodName, Position.ToString()));
+                Program.TraceLogger.LogMessage(methodName + " Set", string.Format("{0} set to {1} OK", methodName, Position.ToString()));
                 return new MethodResponse(ClientTransactionID, ClientID, methodName);
             }
             catch (Exception ex)
             {
                 Program.TraceLogger.LogMessage(methodName + " Set", string.Format("Exception when setting {0} to {1}: {2}", methodName, Position, ex.ToString()));
                 MethodResponse response = new MethodResponse(ClientTransactionID, ClientID, methodName);
-                response.DriverException = ex;
+                //response.DriverException = ex;
+                response.ErrorMessage = ex.Message;
+                response.ErrorNumber = ex.HResult - Program.ASCOM_ERROR_NUMBER_OFFSET;
                 return response;
             }
         }
-
-
-
     }
 }
