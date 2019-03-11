@@ -1,4 +1,4 @@
-# FWsimulatorCore - An ASCOM ASP.NET Core FilterWheel Simulator
+# An ASCOM ASP.NET Core FilterWheel Simulator
 This is an ASCOM FilterWheel simulator written in ASP.NET Core targetting framework 2.2 and developed in Visual Studio on Windows. The application is published to create a Linux-Arm binary that will run on a Raspberry Pi through copy and paste deployment.
 
 # Building the application
